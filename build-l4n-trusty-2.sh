@@ -132,3 +132,6 @@ sudo ./@update.afni.binaries -package linux_openmp_64 -bindir /usr/local/AFNI
 sudo apt-get install -y libboost-thread1.54.0 libboost-program-options1.54.0 qt5-default
 
 echo "Part 2 finished! Please reboot to reflect the customization."
+
+sudo reboot
+

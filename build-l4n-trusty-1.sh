@@ -87,3 +87,5 @@ sudo apt-get update && sudo apt-get -y install ubuntu-tweak
 
 echo "Part1 Finished! Please reboot and run build-l4n-trusty-2.sh."
 
+sudo reboot
+
