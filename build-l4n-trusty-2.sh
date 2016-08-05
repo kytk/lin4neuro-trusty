@@ -24,13 +24,13 @@ if [ -e ./.lin4neuro_ja ] ; then
 fi
 
 #Variable set
-if [ -e ./.lin4neuro_en ] ; then
-  full_url="http://neuro.debian.net/lists/trusty.us-nh.full"
-  rm ./.lin4neuro_en 
-elif [ -e ./.lin4neuro_ja ] ; then
-  full_url="http://neuro.debian.net/lists/trusty.jp.full"
-  rm ./.lin4neuro_ja
-fi
+#if [ -e ./.lin4neuro_en ] ; then
+#  full_url="http://neuro.debian.net/lists/trusty.us-nh.full"
+#  rm ./.lin4neuro_en 
+#elif [ -e ./.lin4neuro_ja ] ; then
+#  full_url="http://neuro.debian.net/lists/trusty.jp.full"
+#  rm ./.lin4neuro_ja
+#fi
 
 #Download necessary files for Lin4Neuro customization
 #echo "Download necessary files for customization"
