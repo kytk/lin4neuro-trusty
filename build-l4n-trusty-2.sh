@@ -97,8 +97,16 @@ sudo apt-get -y autoremove
 
 #Setting up Neurodebian repository
 echo "Setting up Neurodebian repository"
-wget -O- $full_url | \
-sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+if [ -e ./.lin4neuro_en ] ; then
+  wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | \
+  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+#  rm ./.lin4neuro_en 
+elif [ -e ./.lin4neuro_ja ] ; then
+  wget -O- http://neuro.debian.net/lists/xenial.jp.full | \
+  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+#  rm ./.lin4neuro_ja
+fi
+
 sudo apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
 sudo apt-get update
 
