@@ -8,8 +8,6 @@
 #28-Nov-2015: Update version of remastersys
 
 #Installation of Remastersys
-#echo "Download and install remastersys"
-#wget http://www.nemotos.net/lin4neuro/build/remastersys_4.0.0-5_all.deb
 
 sudo apt-get -y  --no-install-recommends install memtest86+ mkisofs \
 	squashfs-tools casper libdebian-installer4 \
@@ -31,4 +29,4 @@ sudo cp ~/lin4neuro-parts/rs-workaround/plymouth-shutdown.conf /etc/init/
 #usb-creator
 sudo apt-get -y install usb-creator-common usb-creator-gtk
 
-echo "Part 3 finished! Now ready for remastering. Execute l4n_remastering.sh in lin4neuro-parts"
+echo "Part 3 finished! Now ready for remastering. Run l4n_remastering.sh"
