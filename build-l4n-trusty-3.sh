@@ -30,7 +30,7 @@ sudo apt-get -y  --no-install-recommends install memtest86+ mkisofs \
 sudo dpkg -i remastersys_4.0.0-5_all.deb
 
 #Workaround for plymouth
-sudo cp ~/lin4neuro-parts/rs-workaround/plymouth-shutdown.conf /etc/init/
+sudo cp ~/git/lin4neuro-trusty/lin4neuro-parts/rs-workaround/plymouth-shutdown.conf /etc/init/
 
 #usb-creator
 sudo apt-get -y install usb-creator-common usb-creator-gtk
