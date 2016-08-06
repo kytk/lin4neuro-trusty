@@ -32,13 +32,9 @@ fi
 #  rm ./.lin4neuro_ja
 #fi
 
-#Download necessary files for Lin4Neuro customization
-#echo "Download necessary files for customization"
-#wget http://www.nemotos.net/lin4neuro/build/lin4neuro-parts.zip
-#unzip ~/lin4neuro-parts.zip
-
 #Installation of lin4neuro-logo
 echo "Installation of lin4neuro-logo"
+sleep 1
 sudo cp -r ${base_path}/lin4neuro-logo /lib/plymouth/themes
 sudo update-alternatives --install /lib/plymouth/themes/default.plymouth \
 	default.plymouth /lib/plymouth/themes/lin4neuro-logo/lin4neuro-logo.plymouth 100
