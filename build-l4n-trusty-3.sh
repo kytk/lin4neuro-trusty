@@ -7,6 +7,12 @@
 #17-Jan-2016: Merge Japanese and English version.
 #28-Nov-2015: Update version of remastersys
 
+#Remove old kernels
+sudo apt-get -y autoremove --purge
+
+#Remove apt cache
+sudo apt-get -y clean
+
 #Installation of Remastersys
 
 sudo apt-get -y  --no-install-recommends install memtest86+ mkisofs \
