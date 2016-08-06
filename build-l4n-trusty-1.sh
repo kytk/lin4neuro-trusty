@@ -4,6 +4,7 @@
 #Prerequisite: You need to install Ubuntu 14.04 with mini.iso and git.
 
 #ChangeLog
+#06-Aug-2016: Move setting neurodebian repository from part 2 to part 1
 #30-Jan-2016: Add default-jdk
 #26-Jan-2016: Comment the download section due to the shift to github
 #20-Jan-2016: Add system-config-printer-gnome
@@ -28,16 +29,29 @@ do
      continue
   elif [ $lang == "Japanese" ] ; then
      MISC_JA="nkf unar"
-     touch .lin4neuro_ja
+
+     wget -O- http://neuro.debian.net/lists/trusty.jp.full | \
+     sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+
+#     touch .lin4neuro_ja
      break
   elif [ $lang == "English" ] ; then
-     touch .lin4neuro_en
+
+     wget -O- http://neuro.debian.net/lists/trusty.us-nh.full | \
+     sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+
+#     touch .lin4neuro_en
      break
   elif [ $lang == "quit" ] ; then
      echo "quit."
      exit 0
   fi
 done
+
+#Signature for neurodebian
+sudo apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
+sudo apt-get update
+
 
 #Installation of XFCE 4.10
 LANG=C
@@ -81,11 +95,8 @@ echo "Installation of Ubuntu-tweak"
 sudo add-apt-repository -y ppa:tualatrix/ppa
 sudo apt-get update && sudo apt-get -y install ubuntu-tweak
 
-#echo "Download script part2 and part3"
-#wget http://www.nemotos.net/lin4neuro/build/build-l4n-part2.sh
-#wget http://www.nemotos.net/lin4neuro/build/build-l4n-part3.sh
+echo "Part1 Finished! The system will reboot. Please run build-l4n-trusty-2.sh."
 
-echo "Part1 Finished! Please reboot and run build-l4n-trusty-2.sh."
-
+sleep 3
 sudo reboot
 

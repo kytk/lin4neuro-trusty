@@ -4,7 +4,8 @@
 #Prerequisite: You need to finish the build-l4n-part1.sh first.
 
 #ChangeLog
-#14-Jan-2016: Merge Engilsh version with Japanese version.
+#06-Aug-2016: Move setting neurodebian repository to Part 1
+#14-Jan-2016: Merge Engilsh version with Japanese version
 #30-Nov-2015: Modify for English version
 #25-Nov-2015: Add log function
 #26-Nov-2015: Modify panel customization
@@ -16,20 +17,11 @@ exec &> >(tee -a "$log")
 base_path=~/git/lin4neuro-trusty/lin4neuro-parts
 
 #Delete directories with Japanese names
-if [ -e ./.lin4neuro_ja ] ; then
-  cd
-  if [ -e ドキュメント ]; then
-        rm -r [!a-zA-Z0-9]*
-  fi
-fi
-
-#Variable set
-#if [ -e ./.lin4neuro_en ] ; then
-#  full_url="http://neuro.debian.net/lists/trusty.us-nh.full"
-#  rm ./.lin4neuro_en 
-#elif [ -e ./.lin4neuro_ja ] ; then
-#  full_url="http://neuro.debian.net/lists/trusty.jp.full"
-#  rm ./.lin4neuro_ja
+#if [ -e ./.lin4neuro_ja ] ; then
+#  cd
+#  if [ -e ドキュメント ]; then
+#        rm -r [!a-zA-Z0-9]*
+#  fi
 #fi
 
 #Installation of lin4neuro-logo
@@ -39,7 +31,6 @@ sudo cp -r ${base_path}/lin4neuro-logo /lib/plymouth/themes
 sudo update-alternatives --install /lib/plymouth/themes/default.plymouth \
 	default.plymouth /lib/plymouth/themes/lin4neuro-logo/lin4neuro-logo.plymouth 100
 sudo update-initramfs -u
-cd ..
 
 #Installation of icons
 echo "Installation of icons"
@@ -64,6 +55,9 @@ cp ${base_path}/local/share/desktop-directories/Neuroimaging.directory ~/.local/
 #Copy background image
 echo "Copy background image"
 sudo cp ${base_path}/backgrounds/deep_ocean.png /usr/share/backgrounds
+
+#Remove system background image
+sudo rm /usr/share/backgrounds/xfce/xfce-teal.jpg
 
 #Copy modified lightdm-gtk-greeter.conf
 echo "Copy modified lightdm-gtk-greeter.conf"
@@ -92,19 +86,19 @@ cp ${base_path}/config/xfce-perchannel-xml/xfwm4.xml ~/.config/xfce4/xfconf/xfce
 sudo apt-get -y autoremove
 
 #Setting up Neurodebian repository
-echo "Setting up Neurodebian repository"
-if [ -e ./.lin4neuro_en ] ; then
-  wget -O- http://neuro.debian.net/lists/trusty.us-nh.full | \
-  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-#  rm ./.lin4neuro_en 
-elif [ -e ./.lin4neuro_ja ] ; then
-  wget -O- http://neuro.debian.net/lists/trusty.jp.full | \
-  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-#  rm ./.lin4neuro_ja
-fi
-
-sudo apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
-sudo apt-get update
+#echo "Setting up Neurodebian repository"
+#if [ -e ./.lin4neuro_en ] ; then
+#  wget -O- http://neuro.debian.net/lists/trusty.us-nh.full | \
+#  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+##  rm ./.lin4neuro_en 
+#elif [ -e ./.lin4neuro_ja ] ; then
+#  wget -O- http://neuro.debian.net/lists/trusty.jp.full | \
+#  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+##  rm ./.lin4neuro_ja
+#fi
+#
+#sudo apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
+#sudo apt-get update
 
 #Installation of FSL
 echo "Installation of FSL"
@@ -128,7 +122,7 @@ sudo apt-get install -y tcsh libxp6 xfonts-base python-qt4             \
                         gsl-bin netpbm gnome-tweak-tool libjpeg62
 
 #Download AFNI installation script
-#wget https://afni.nimh.nih.gov/pub/dist/bin/linux_fedora_21_64/@update.afni.binaries
+wget https://afni.nimh.nih.gov/pub/dist/bin/linux_fedora_21_64/@update.afni.binaries
 
 #Install AFNI
 #sudo mkdir /usr/local/AFNI
@@ -137,7 +131,14 @@ sudo apt-get install -y tcsh libxp6 xfonts-base python-qt4             \
 #Install prerequisite packages for DSI Studio
 sudo apt-get install -y libboost-thread1.54.0 libboost-program-options1.54.0 qt5-default
 
-echo "Part 2 finished! Please reboot to reflect the customization."
+#Copy bashcom.sh for c3d to ~/bin
+cp -r ${base_path}/bin $HOME
 
+#Add PATH settings to .bashrc
+cat ${base_path}/bashrc/bashrc-addition.txt >> $HOME/.bashrc
+
+echo "Part 2 finished! The system will reboot to reflect the customization."
+echo "Please install several packages later."
+sleep 3
 sudo reboot
 
