@@ -30,7 +30,8 @@ sudo rsync -rp --delete --progress ~/.bashrc /etc/skel/
 sudo rsync -rp --delete --progress ~/.icons /etc/skel/
 sudo rsync -rp --delete --progress ~/bin /etc/skel/
 #sudo rsync -rp --delete --progress ~/Desktop /etc/skel/
-
+sudo rsync -rp --delete --progress ~/.afnirc /etc/skel/
+sudo rsync -rp --delete --progress ~/.sumarc /etc/skel/
 
 #Check if Document direcotry exists in /etc/skel
 cd /etc/skel
