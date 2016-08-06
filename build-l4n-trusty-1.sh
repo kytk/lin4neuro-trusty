@@ -91,9 +91,9 @@ sudo apt-get update && sudo apt-get -y dist-upgrade
 sudo apt-get -y purge xscreensaver
 
 #Installation of Ubuntu-tweak
-echo "Installation of Ubuntu-tweak"
-sudo add-apt-repository -y ppa:tualatrix/ppa
-sudo apt-get update && sudo apt-get -y install ubuntu-tweak
+#echo "Installation of Ubuntu-tweak"
+#sudo add-apt-repository -y ppa:tualatrix/ppa
+#sudo apt-get update && sudo apt-get -y install ubuntu-tweak
 
 echo "Part1 Finished! The system will reboot. Please run build-l4n-trusty-2.sh."
 
