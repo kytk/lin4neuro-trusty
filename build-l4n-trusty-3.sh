@@ -7,11 +7,16 @@
 #17-Jan-2016: Merge Japanese and English version.
 #28-Nov-2015: Update version of remastersys
 
+base_path=$HOME/git/lin4neuro-trusty/lin4neuro-parts
+
 #Remove old kernels
 sudo apt-get -y autoremove --purge
 
 #Remove apt cache
 sudo apt-get -y clean
+
+#Remove unnecessary kernels
+sudo purge-old-kernels --keep 1
 
 #Installation of Remastersys
 
@@ -30,7 +35,9 @@ sudo apt-get -y  --no-install-recommends install memtest86+ mkisofs \
 sudo dpkg -i remastersys_4.0.0-5_all.deb
 
 #Workaround for plymouth
-sudo cp ~/git/lin4neuro-trusty/lin4neuro-parts/rs-workaround/plymouth-shutdown.conf /etc/init/
+sudo cp ${base_path}/rs-workaround/plymouth-shutdown.conf /etc/init/
+sudo cp -r ${base_path}/rs-workaround/isolinux /etc/remastersys
+sudo cp -r ${base_path}/rs-workaround/preseed /etc/remastersys
 
 #usb-creator
 sudo apt-get -y install usb-creator-common usb-creator-gtk
