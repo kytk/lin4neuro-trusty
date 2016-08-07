@@ -16,6 +16,15 @@ if [ ! -e /etc/skel/.local ]; then
 	sudo mkdir -p /etc/skel/.local/share/desktop-directories
 fi
 
+#Remove old kernels
+sudo apt-get -y autoremove --purge
+
+#Remove apt cache
+sudo apt-get -y clean
+
+#Remove unnecessary kernels
+sudo purge-old-kernels --keep 1
+
 #Copy config files based on Ubuntu
 echo "Copy config files based on Ubuntu to /etc/skel ..."
 cd $HOME

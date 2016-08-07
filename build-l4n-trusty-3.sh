@@ -9,15 +9,6 @@
 
 base_path=$HOME/git/lin4neuro-trusty/lin4neuro-parts
 
-#Remove old kernels
-sudo apt-get -y autoremove --purge
-
-#Remove apt cache
-sudo apt-get -y clean
-
-#Remove unnecessary kernels
-sudo purge-old-kernels --keep 1
-
 #Installation of Remastersys
 
 sudo apt-get -y  --no-install-recommends install memtest86+ mkisofs \
