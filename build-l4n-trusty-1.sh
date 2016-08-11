@@ -69,6 +69,10 @@ echo "Installation of misc packages"
 sudo apt-get -y install wajig imagemagick evince vim gedit \
 	unzip zip gparted $MISC_JA
 
+#vim settings
+cp /usr/share/vim/vimrc ~/.vimrc
+sed -i -e 's/"set background=dark/set background=dark/' ~/.vimrc
+
 #English-dependent packages
 if [ $lang == "English" ] ; then
   echo "Installation of firefox"
