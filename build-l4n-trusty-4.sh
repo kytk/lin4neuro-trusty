@@ -29,8 +29,12 @@ sudo dpkg -i remastersys_4.0.0-5_all.deb
 sudo cp ${base_path}/rs-workaround/plymouth-shutdown.conf /etc/init/
 sudo cp -r ${base_path}/rs-workaround/isolinux /etc/remastersys
 sudo cp -r ${base_path}/rs-workaround/preseed /etc/remastersys
-
+if [ `echo $LANG` = ja_JP.UTF-8 ]; then
+    sudo cp ${base_path}/rs-workaround/remastersys.conf.ja /etc/remastersys.conf
+else
+    sudo cp ${base_path}/rs-workaround/remastersys.conf.en /etc/remastersys.conf
+    
 #usb-creator
 sudo apt-get -y install usb-creator-common usb-creator-gtk
 
-echo "Part 3 finished! Now ready for remastering. Run l4n_remastering.sh"
+echo "Part 4 finished! Now ready for remastering. Run l4n_remastering.sh"
