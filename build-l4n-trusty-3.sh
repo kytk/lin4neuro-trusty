@@ -26,7 +26,7 @@ Slicer
 c3d
 
 #ANTs
-ANTs
+ANTS
 
 #ITK-SNAP
 itksnap
