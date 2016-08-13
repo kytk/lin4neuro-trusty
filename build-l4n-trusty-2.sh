@@ -122,7 +122,7 @@ sudo apt-get install -y tcsh libxp6 xfonts-base python-qt4             \
                         gsl-bin netpbm gnome-tweak-tool libjpeg62
 
 #Download AFNI installation script
-wget https://afni.nimh.nih.gov/pub/dist/bin/linux_fedora_21_64/@update.afni.binaries
+#wget https://afni.nimh.nih.gov/pub/dist/bin/linux_fedora_21_64/@update.afni.binaries
 
 #Install AFNI
 #sudo mkdir /usr/local/AFNI
