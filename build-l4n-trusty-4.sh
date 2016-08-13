@@ -33,6 +33,7 @@ if [ `echo $LANG` = ja_JP.UTF-8 ]; then
     sudo cp ${base_path}/rs-workaround/remastersys.conf.ja /etc/remastersys.conf
 else
     sudo cp ${base_path}/rs-workaround/remastersys.conf.en /etc/remastersys.conf
+fi
     
 #usb-creator
 sudo apt-get -y install usb-creator-common usb-creator-gtk
