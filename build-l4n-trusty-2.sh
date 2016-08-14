@@ -77,21 +77,6 @@ cp ${base_path}/config/xfce-perchannel-xml/xfwm4.xml ~/.config/xfce4/xfconf/xfce
 #Clean packages
 sudo apt-get -y autoremove
 
-#Setting up Neurodebian repository
-#echo "Setting up Neurodebian repository"
-#if [ -e ./.lin4neuro_en ] ; then
-#  wget -O- http://neuro.debian.net/lists/trusty.us-nh.full | \
-#  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-##  rm ./.lin4neuro_en 
-#elif [ -e ./.lin4neuro_ja ] ; then
-#  wget -O- http://neuro.debian.net/lists/trusty.jp.full | \
-#  sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-##  rm ./.lin4neuro_ja
-#fi
-#
-#sudo apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
-#sudo apt-get update
-
 #Installation of FSL
 echo "Installation of FSL"
 sudo apt-get -y install fsl
