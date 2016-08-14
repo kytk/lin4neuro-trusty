@@ -16,14 +16,6 @@ exec &> >(tee -a "$log")
 #Setting of path of the setting scripts
 base_path=~/git/lin4neuro-trusty/lin4neuro-parts
 
-#Delete directories with Japanese names
-#if [ -e ./.lin4neuro_ja ] ; then
-#  cd
-#  if [ -e ドキュメント ]; then
-#        rm -r [!a-zA-Z0-9]*
-#  fi
-#fi
-
 #Installation of lin4neuro-logo
 echo "Installation of lin4neuro-logo"
 sleep 1
