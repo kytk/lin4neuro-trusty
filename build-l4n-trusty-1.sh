@@ -30,6 +30,7 @@ do
   elif [ $lang == "Japanese" ] ; then
      MISC_JA="nkf unar"
 
+     #Setup Neurodebian repository
      wget -O- http://neuro.debian.net/lists/trusty.jp.full | \
      sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
 
@@ -37,6 +38,7 @@ do
      break
   elif [ $lang == "English" ] ; then
 
+     #Setup Neurodebian repository
      wget -O- http://neuro.debian.net/lists/trusty.us-nh.full | \
      sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
 
@@ -73,12 +75,12 @@ sudo apt-get -y install wajig imagemagick evince vim gedit \
 cp /usr/share/vim/vimrc ~/.vimrc
 sed -i -e 's/"set background=dark/set background=dark/' ~/.vimrc
 
-#English-dependent packages
 if [ $lang == "English" ] ; then
+  #English-dependent packages
   echo "Installation of firefox"
   sudo apt-get -y install firefox firefox-locale-en
 else
-#Japanese-dependent environment
+  #Japanese-dependent environment
   echo "Installation of fcitx and firefox"
   sudo apt-get -y install fcitx fcitx-mozc firefox firefox-locale-ja
   #Change directories to English
@@ -93,11 +95,6 @@ sudo apt-get update && sudo apt-get -y dist-upgrade
 
 #Remove xscreensaver
 sudo apt-get -y purge xscreensaver
-
-#Installation of Ubuntu-tweak
-#echo "Installation of Ubuntu-tweak"
-#sudo add-apt-repository -y ppa:tualatrix/ppa
-#sudo apt-get update && sudo apt-get -y install ubuntu-tweak
 
 #Installation of byobu
 echo "Installation of byobu"
