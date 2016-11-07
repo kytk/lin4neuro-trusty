@@ -69,7 +69,10 @@ sudo apt-get -y install xfce4 xfce4-terminal xfce4-indicator-plugin \
 #Installation of misc packages
 echo "Installation of misc packages"
 sudo apt-get -y install wajig imagemagick evince vim gedit \
-	unzip zip gparted $MISC_JA
+	unzip zip gparted ristretto $MISC_JA
+
+#Installation of libraries for neuroimaging packages
+sudo apt-get -y install libjsoncpp0
 
 #vim settings
 cp /usr/share/vim/vimrc ~/.vimrc
