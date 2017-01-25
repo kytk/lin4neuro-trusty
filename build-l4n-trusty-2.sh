@@ -74,6 +74,12 @@ cp ${base_path}/config/xfce-perchannel-xml/xfce4-desktop.xml ~/.config/xfce4/xfc
 echo "Customize theme (Greybird)"
 cp ${base_path}/config/xfce-perchannel-xml/xfwm4.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
+#Virtualbox guest addition
+sudo apt-get -y install virtualbox-guest-dkms
+
+#Enable virtualbox shared folder
+sudo usermod -aG vboxsf $USER
+
 #Clean packages
 sudo apt-get -y autoremove
 
