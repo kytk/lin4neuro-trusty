@@ -64,11 +64,11 @@ sudo apt-get -y install xfce4 xfce4-terminal xfce4-indicator-plugin \
 	linux-image-hwe-generic-trusty linux-hwe-generic-trusty \
 	linux-headers-generic-lts-utopic build-essential dkms \
 	thunar-archive-plugin file-roller gawk default-jre default-jdk \
-	system-config-printer-gnome
+	system-config-printer-gnome xdg-utils
 
 #Installation of misc packages
 echo "Installation of misc packages"
-sudo apt-get -y install wajig imagemagick evince vim gedit \
+sudo apt-get -y install wajig imagemagick evince gedit \
 	unzip zip gparted ristretto $MISC_JA
 
 #Installation of libraries for neuroimaging packages
