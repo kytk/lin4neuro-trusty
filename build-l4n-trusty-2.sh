@@ -85,7 +85,7 @@ sudo apt-get -y autoremove
 
 #Installation of FSL
 echo "Installation of FSL"
-sudo apt-get -y install fsl
+sudo apt-get -y install fsl fsl-5.0-doc-wiki*
 
 #PATH settings
 cat << FIN >> ~/.bashrc
