@@ -113,6 +113,8 @@ sudo apt-get install -y tcsh libxp6 xfonts-base python-qt4             \
 
 #Install prerequisite packages for DSI Studio
 sudo apt-get install -y libboost-thread1.54.0 libboost-program-options1.54.0 qt5-default
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+sudo apt-get update; sudo apt-get dist-upgrade
 
 #Copy bashcom.sh for c3d to ~/bin
 cp -r ${base_path}/bin $HOME
