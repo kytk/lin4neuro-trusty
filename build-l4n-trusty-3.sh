@@ -40,6 +40,10 @@ mricron
 #ROBEX
 ROBEX
 
+#FSL-doc
+sudo mkdir $FSLDIR/doc/redirects
+echo '<meta http-equiv="refresh" content="0; url=file:///usr/share/fsl/5.0/doc/wiki/FSL.html" />' | sudo tee $FSLDIR/doc/redirects/index.html
+
 #FSL
 fsl
 
