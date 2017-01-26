@@ -122,6 +122,9 @@ cp -r ${base_path}/bin $HOME
 #Add PATH settings to .bashrc
 cat ${base_path}/bashrc/bashrc-addition.txt >> $HOME/.bashrc
 
+#Remove zeros from the system
+sudo dd if=/dev/zero of=zero bs=4k; \rm zero
+
 echo "Part 2 finished! The system will reboot to reflect the customization."
 echo "Please install several packages later."
 sleep 3

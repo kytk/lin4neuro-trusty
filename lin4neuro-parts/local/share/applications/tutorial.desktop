@@ -3,10 +3,11 @@ Version=1.0
 Type=Application
 Name=Chris Rorden's MRI tutorial
 Comment=
-Exec=x-www-browser ~/tutorial/index.html
+Exec=xdg-open "~/tutorial/sampledata/index.html"
 Icon=tutorials.png
 Categories=Neuroimaging;
 StartupNotify=true
 Terminal=false
-NoDisplay=true
+NoDisplay=false
+
 
