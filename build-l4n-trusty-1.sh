@@ -4,6 +4,7 @@
 #Prerequisite: You need to install Ubuntu 14.04 with mini.iso and git.
 
 #ChangeLog
+#19-Mar-2017: Add gcalctool
 #06-Aug-2016: Move setting neurodebian repository from part 2 to part 1
 #30-Jan-2016: Add default-jdk
 #26-Jan-2016: Comment the download section due to the shift to github
@@ -33,17 +34,15 @@ do
      #Setup Neurodebian repository
      wget -O- http://neuro.debian.net/lists/trusty.jp.full | \
      sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-
-#     touch .lin4neuro_ja
      break
+
   elif [ $lang == "English" ] ; then
 
      #Setup Neurodebian repository
      wget -O- http://neuro.debian.net/lists/trusty.us-nh.full | \
      sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-
-#     touch .lin4neuro_en
      break
+
   elif [ $lang == "quit" ] ; then
      echo "quit."
      exit 0
@@ -51,9 +50,10 @@ do
 done
 
 #Signature for neurodebian
-sudo apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
+#sudo apt-key adv --recv-keys --keyserver \
+#   hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
+sudo apt-key add neuro.debian.net.asc
 sudo apt-get update
-
 
 #Installation of XFCE 4.10
 LANG=C
@@ -69,7 +69,7 @@ sudo apt-get -y install xfce4 xfce4-terminal xfce4-indicator-plugin \
 #Installation of misc packages
 echo "Installation of misc packages"
 sudo apt-get -y install wajig imagemagick evince gedit \
-	unzip zip gparted ristretto $MISC_JA
+	unzip zip gparted ristretto gcalctool $MISC_JA
 
 #Installation of libraries for neuroimaging packages
 sudo apt-get -y install libjsoncpp0
